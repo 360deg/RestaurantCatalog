@@ -1,0 +1,40 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5003"
+  },
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/gateway/Product",
+      "UpstreamHttpMethod": ["Get", "Post", "Put", "Delete"],
+      "DownstreamPathTemplate": "/Product",
+      "DownstreamScheme": "https",
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "DownstreamHostAndPorts": [{
+        "Host": "localhost",
+        "Port": 7140
+      }]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Product/{id}",
+      "UpstreamHttpMethod": ["Get"],
+      "DownstreamPathTemplate": "/Product/{id}",
+      "DownstreamScheme": "https",
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "DownstreamHostAndPorts": [{
+        "Host": "localhost",
+        "Port": 7140
+      }]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Auth/Token",
+      "UpstreamHttpMethod": ["Post"],
+      "DownstreamPathTemplate": "/Auth/Token",
+      "DownstreamScheme": "https",
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "DownstreamHostAndPorts": [{
+        "Host": "localhost",
+        "Port": 7140
+      }]
+    }
+  ]
+}
